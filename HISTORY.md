@@ -150,7 +150,41 @@ user_preferences  → preferências de perfil (Memory Agent)
 - [ ] Configurar lint (ruff) e type checking (mypy)
 - [ ] CI/CD com GitHub Actions
 - [ ] Internacionalização (i18n)
-- [ ] Inicializar repositório Git
+- [x] Inicializar repositório Git ✅ Sessão 3
+- [ ] Adicionar frontend de histórico de jobs (visualização)
+- [ ] Migrar dados existentes de exports/ para o banco
+
+---
+
+## Sessão 3 — 2026-07-27
+
+### Tarefa
+- Deploy do projeto no GitHub
+
+### Alterações realizadas
+- Criado `.gitignore` (exclui uploads/, exports/, __pycache__, *.db, test_whisper_input.mp4)
+- Configurado git user (gabrieldjou-hue)
+- Inicializado repositório Git
+- Criado repositório público no GitHub: https://github.com/gabrieldjou-hue/cortexedit
+- Primeiro commit com 79 arquivos (~0.35 MB de código fonte)
+
+### Estado do projeto
+- Repositório público em https://github.com/gabrieldjou-hue/cortexedit
+- Branch master com 1 commit
+- .gitignore exclui 274 MB de dados de runtime (uploads, exports, db)
+
+### Pendências conhecidas
+- [x] Adicionar banco de dados (SQLite/PostgreSQL) para persistência ✅ Sessão 2
+- [ ] Implementar autenticação JWT
+- [ ] Substituir módulos simulados por integrações reais (Whisper, YOLO, etc.)
+- [ ] Adicionar testes automatizados (pytest)
+- [ ] Adicionar Dockerfile + docker-compose
+- [ ] Suporte a jobs paralelos
+- [ ] Adicionar `requirements.txt` na raiz do projeto
+- [ ] Configurar lint (ruff) e type checking (mypy)
+- [ ] CI/CD com GitHub Actions
+- [ ] Internacionalização (i18n)
+- [x] Inicializar repositório Git ✅
 - [ ] Adicionar frontend de histórico de jobs (visualização)
 - [ ] Migrar dados existentes de exports/ para o banco
 

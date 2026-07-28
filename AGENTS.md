@@ -305,6 +305,7 @@ pip install fastapi uvicorn pydantic python-multipart sqlalchemy
 ## Notas de Desenvolvimento
 
 - [x] Adicionar banco de dados (SQLite/PostgreSQL) para persistência
+- [x] Inicializar repositório Git + deploy no GitHub
 - [ ] Implementar autenticação JWT
 - [ ] Substituir módulos simulados por integrações reais (Whisper, YOLO, etc.)
 - [ ] Adicionar testes (pytest)
