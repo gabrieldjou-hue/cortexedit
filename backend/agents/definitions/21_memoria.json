@@ -1,0 +1,18 @@
+{
+  "id": 21,
+  "nome": "Memoria",
+  "arquivo": "memory_agent.py",
+  "status": "Real (RAM)",
+  "missao": "Armazenar preferencias, presets e historico para acelerar decisoes futuras.",
+  "responsabilidades": [
+    "Armazenar preferencias",
+    "Armazenar presets",
+    "Armazenar estilos",
+    "Armazenar historico",
+    "Armazenar modelos"
+  ],
+  "regras": [
+    "Nunca alterar preferencias sem autorizacao"
+  ],
+  "entrega": "Preferencias e perfis armazenados"
+}

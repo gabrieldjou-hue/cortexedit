@@ -1,0 +1,18 @@
+{
+  "id": 17,
+  "nome": "Motion Graphics",
+  "arquivo": "motion_graphics_agent.py",
+  "modulo_real": "graphics_module.py",
+  "status": "Simulado",
+  "missao": "Criar animacoes, titulos e transicoes graficas.",
+  "responsabilidades": [
+    "Criar animacoes",
+    "Criar titulos",
+    "Criar transicoes graficas",
+    "Criar overlays"
+  ],
+  "regras": [
+    "Respeitar identidade visual"
+  ],
+  "entrega": "Animacoes, titulos e transicoes"
+}

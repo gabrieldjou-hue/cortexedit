@@ -1,0 +1,21 @@
+{
+  "id": 6,
+  "nome": "Analise Semantica",
+  "arquivo": "semantic_analysis_agent.py",
+  "status": "Simulado",
+  "missao": "Entender o significado do conteudo: topicos, palavras-chave, resumo e trechos importantes.",
+  "responsabilidades": [
+    "Entender assuntos",
+    "Identificar temas",
+    "Detectar palavras-chave",
+    "Criar resumo",
+    "Identificar topicos",
+    "Identificar trechos importantes"
+  ],
+  "regras": [
+    "Nunca editar",
+    "Nunca resumir alem do solicitado"
+  ],
+  "entrega": "Topicos, palavras-chave, resumo e segmentos importantes",
+  "integracao_futura": ["BERT / GPT", "HuggingFace transformers"]
+}

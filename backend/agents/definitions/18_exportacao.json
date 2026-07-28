@@ -1,0 +1,19 @@
+{
+  "id": 18,
+  "nome": "Exportacao",
+  "arquivo": "export_agent.py",
+  "modulos_reais": ["render_module.py", "export_module.py"],
+  "status": "Real",
+  "missao": "Renderizar e converter o projeto final em multiplos formatos.",
+  "responsabilidades": [
+    "Renderizar master",
+    "Converter formatos",
+    "Gerar multiplas versoes",
+    "Criar thumbnails",
+    "Criar proxies"
+  ],
+  "regras": [
+    "Nunca sobrescrever arquivos existentes"
+  ],
+  "entrega": "Arquivos exportados (master + multi-formato)"
+}

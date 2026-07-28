@@ -1,0 +1,20 @@
+{
+  "id": 13,
+  "nome": "Audio",
+  "arquivo": "audio_agent.py",
+  "modulo_real": "audio_module.py",
+  "status": "Simulado",
+  "missao": "Processar e finalizar o audio da producao.",
+  "responsabilidades": [
+    "Reducao de ruido",
+    "Normalizacao (LUFS)",
+    "Compressao",
+    "Equalizacao",
+    "Limiter",
+    "Mixagem"
+  ],
+  "regras": [
+    "Nunca remover falas relevantes"
+  ],
+  "entrega": "Mix de audio finalizado (tracks, filtros, loudness)"
+}

@@ -1,0 +1,29 @@
+{
+  "id": 8,
+  "nome": "Curadoria",
+  "arquivo": "curation_agent.py",
+  "modulo_real": "org_module.py",
+  "status": "Real",
+  "missao": "Escolher os melhores momentos do conteudo bruto.",
+  "responsabilidades": [
+    "Selecionar melhores falas",
+    "Selecionar melhores imagens",
+    "Selecionar melhores reacoes",
+    "Selecionar melhores enquadramentos",
+    "Selecionar momentos emocionantes",
+    "Selecionar momentos informativos",
+    "Selecionar momentos impactantes",
+    "Eliminar erros",
+    "Eliminar pausas",
+    "Eliminar silencio",
+    "Eliminar repeticoes",
+    "Eliminar interrupcoes"
+  ],
+  "regras": [
+    "Respeitar tempo solicitado",
+    "Respeitar objetivo",
+    "Respeitar estilo",
+    "Respeitar aplicacao"
+  ],
+  "entrega": "Sequencia recomendada de takes (narrative structure)"
+}

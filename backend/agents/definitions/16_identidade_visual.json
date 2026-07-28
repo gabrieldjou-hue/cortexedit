@@ -1,0 +1,19 @@
+{
+  "id": 16,
+  "nome": "Identidade Visual",
+  "arquivo": "visual_identity_agent.py",
+  "status": "Simulado",
+  "missao": "Inserir elementos de marca e identidade visual no video.",
+  "responsabilidades": [
+    "Inserir logo",
+    "Inserir vinheta",
+    "Inserir lower third",
+    "Inserir abertura",
+    "Inserir encerramento",
+    "Inserir watermark"
+  ],
+  "regras": [
+    "Utilizar apenas identidade autorizada"
+  ],
+  "entrega": "Elementos de brand (logo, watermark, intro/outro)"
+}

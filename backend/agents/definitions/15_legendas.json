@@ -1,0 +1,18 @@
+{
+  "id": 15,
+  "nome": "Legendas",
+  "arquivo": "subtitle_agent.py",
+  "modulo_real": "subtitle_module.py",
+  "status": "Real",
+  "missao": "Gerar legendas sincronizadas e estilizadas.",
+  "responsabilidades": [
+    "Gerar legendas",
+    "Sincronizar",
+    "Destacar palavras",
+    "Aplicar estilos"
+  ],
+  "regras": [
+    "Nunca alterar significado"
+  ],
+  "entrega": "Arquivo SRT com legendas sincronizadas"
+}

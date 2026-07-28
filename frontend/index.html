@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CortexEdit - Plataforma de pós-produção de vídeo com inteligência artificial. Upload de vídeos brutos, edição automática, legendas, color grading e exportação multi-formato.">
+    <title>CortexEdit | AI Post-Production Platform</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <div class="logo">
+                <i class="fa-solid fa-brain"></i>
+                <span>CortexEdit</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" id="navStudio"><i class="fa-solid fa-wand-magic-sparkles"></i> Studio</a>
+                <a href="#" class="nav-item" id="navProjects"><i class="fa-solid fa-folder-tree"></i> Projects</a>
+                <a href="#" class="nav-item" id="navProfiles"><i class="fa-solid fa-sliders"></i> AI Profiles</a>
+                <a href="#" class="nav-item" id="navAnalytics"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+                <a href="#" class="nav-item" id="navSettings"><i class="fa-solid fa-gear"></i> Settings</a>
+            </nav>
+            <!-- FFmpeg status indicator -->
+            <div class="ffmpeg-status" id="ffmpegStatus">
+                <i class="fa-solid fa-circle-question"></i>
+                <span>Checking FFmpeg...</span>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar glass-panel">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search projects or media..." id="searchInput">
+                </div>
+                <div class="user-profile glass-panel">
+                    <div class="avatar"></div>
+                    <span>Production Admin</span>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <!-- Configuration Panel -->
+                <section class="config-panel glass-panel">
+                    <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Studio</h2>
+
+                    <!-- Upload Zone (always visible) -->
+                    <div class="form-group">
+                        <label>Video</label>
+                        <div class="upload-zone" id="uploadZone">
+                            <input type="file" id="fileInput" multiple accept="video/*,.mxf,.braw,.mkv,.ts" style="display:none;">
+                            <div class="upload-zone-content" id="uploadZoneContent">
+                                <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                                <p class="upload-title">Arraste seus vídeos aqui</p>
+                                <p class="upload-sub">ou <button class="upload-browse-btn" id="btnBrowse" type="button">Selecionar Arquivos</button></p>
+                                <p class="upload-formats">MP4 · MOV · MXF · MKV · AVI · WebM</p>
+                            </div>
+                        </div>
+                        <div class="file-list" id="fileList" style="display:none;"></div>
+                    </div>
+
+                    <!-- Tool Tabs -->
+                    <div class="studio-tabs" id="studioTabs">
+                        <button class="studio-tab active" data-tab="production">
+                            <i class="fa-solid fa-bolt"></i> Produção
+                        </button>
+                        <button class="studio-tab" data-tab="transcribe">
+                            <i class="fa-solid fa-closed-captioning"></i> Transcrever
+                        </button>
+                        <button class="studio-tab" data-tab="cuts">
+                            <i class="fa-solid fa-scissors"></i> Recortar
+                        </button>
+                    </div>
+
+                    <!-- Tab: Produção AI -->
+                    <div class="tab-content active" id="tabProduction">
+                        <div class="form-group">
+                            <label>AI Production Profile</label>
+                            <select id="profileSelector">
+                                <option value="podcast">Podcast (Dynamic Cams)</option>
+                                <option value="youtube">YouTube (High Energy)</option>
+                                <option value="reels">Instagram Reels / TikTok</option>
+                                <option value="cinematic">Cinematic Documentary</option>
+                                <option value="institutional">Institutional / Corporate</option>
+                            </select>
+                        </div>
+                        <div class="export-options">
+                            <label>Target Deliverables</label>
+                            <div class="chips" id="chipsContainer">
+                                <div class="chip active" data-format="16:9 4K"><i class="fa-solid fa-tv"></i> 16:9 4K</div>
+                                <div class="chip active" data-format="9:16 1080p"><i class="fa-solid fa-mobile-screen"></i> 9:16 1080p</div>
+                                <div class="chip" data-format="1:1 Square"><i class="fa-solid fa-square"></i> 1:1 Square</div>
+                                <div class="chip active" data-format="Audio Only"><i class="fa-solid fa-music"></i> Audio Only</div>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-primary" id="btnProduce">
+                                <i class="fa-solid fa-bolt"></i> Start AI Production
+                            </button>
+                            <button class="btn-cancel" id="btnCancel" style="display:none;">
+                                <i class="fa-solid fa-stop"></i> Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Transcrever -->
+                    <div class="tab-content" id="tabTranscribe" style="display:none;">
+                        <p class="tab-desc">Transcreva o áudio do vídeo e edite as legendas sincronizadas com o player.</p>
+                        <div class="action-buttons">
+                            <button class="btn-primary" id="btnStartTranscribe">
+                                <i class="fa-solid fa-closed-captioning"></i> Transcrever Vídeo
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Recortar (por Transcrição) -->
+                    <div class="tab-content" id="tabCuts" style="display:none;">
+                        <p class="tab-desc">Analise a transcrição e gere recortes automaticamente a partir dos trechos falados.</p>
+
+                        <!-- Passo 1: Upload + Gerar sugestões -->
+                        <div class="cut-step" id="cutStepUpload">
+                            <div class="cut-upload-zone" id="cutUploadZone">
+                                <input type="file" id="cutFileInput" accept="video/*" style="display:none;">
+                                <i class="fa-solid fa-cloud-arrow-up cut-upload-icon"></i>
+                                <p class="cut-upload-title">Arraste um vídeo ou clique para selecionar</p>
+                                <p class="cut-upload-sub">MP4 · MOV · MKV · AVI · WebM</p>
+                            </div>
+                            <button class="btn-primary" id="btnAnalyzeCuts" disabled>
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> Analisar Transcrição
+                            </button>
+                        </div>
+
+                        <!-- Passo 2: Trechos sugeridos -->
+                        <div class="cut-step" id="cutStepSuggestions" style="display:none;">
+                            <div class="cut-suggestions-header">
+                                <span class="cut-suggestions-title"><i class="fa-solid fa-scissors"></i> Trechos Sugeridos</span>
+                                <span class="cut-suggestions-count" id="cutSuggestionsCount">0 trechos</span>
+                            </div>
+                            <div class="cut-select-all-row">
+                                <label class="cut-checkbox-label">
+                                    <input type="checkbox" id="cutSelectAll" checked>
+                                    <span>Selecionar todos</span>
+                                </label>
+                            </div>
+                            <div class="cut-suggestions-list" id="cutSuggestionsList"></div>
+                            <div class="cut-actions">
+                                <button class="btn-primary" id="btnCutSelected">
+                                    <i class="fa-solid fa-scissors"></i> Cortar Selecionados
+                                </button>
+                                <button class="btn-secondary" id="btnAnalyzeAgain">
+                                    <i class="fa-solid fa-rotate"></i> Reanalisar
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Passo 3: Progresso do corte -->
+                        <div class="cut-step" id="cutStepProgress" style="display:none;">
+                            <div class="cut-progress-panel">
+                                <div class="cut-progress-header">
+                                    <i class="fa-solid fa-circle-notch fa-spin" id="cutProgressIcon"></i>
+                                    <span id="cutProgressMsg">Cortando...</span>
+                                    <span class="cut-progress-pct" id="cutProgressPct">0%</span>
+                                </div>
+                                <div class="cut-progress-bar">
+                                    <div class="cut-progress-fill" id="cutProgressFill"></div>
+                                </div>
+                                <div class="cut-progress-detail" id="cutProgressDetail"></div>
+                            </div>
+                        </div>
+
+                        <!-- Passo 4: Clips gerados -->
+                        <div class="cut-step" id="cutStepClips" style="display:none;">
+                            <div class="cut-clips-header">
+                                <span class="cut-clips-title"><i class="fa-solid fa-film"></i> Clips Gerados</span>
+                                <span class="cut-clips-count" id="cutClipsCount">0 arquivos</span>
+                            </div>
+                            <div class="cut-clips-list" id="cutClipsList"></div>
+                            <div class="cut-actions">
+                                <button class="btn-secondary" id="btnCutNewVideo">
+                                    <i class="fa-solid fa-plus"></i> Novo Vídeo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upload progress bar -->
+                    <div class="upload-progress-wrap" id="uploadProgressWrap" style="display:none;">
+                        <div class="upload-progress-label">
+                            <span id="uploadProgressLabel">Uploading files...</span>
+                            <span id="uploadProgressPct">0%</span>
+                        </div>
+                        <div class="upload-progress-bar">
+                            <div class="upload-progress-fill" id="uploadProgressFill"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pipeline Visualizer -->
+                <section class="pipeline-panel glass-panel">
+                    <h2><i class="fa-solid fa-diagram-project"></i> Processing Pipeline</h2>
+                    <div class="stage-progress-wrap">
+                        <div class="stage-progress-bar">
+                            <div class="stage-progress-fill" id="stageProgressFill" style="width:0%"></div>
+                        </div>
+                        <span class="stage-progress-label" id="stageProgressLabel">Idle</span>
+                    </div>
+                    <div class="pipeline-nodes">
+                        <div class="node" id="node-ingestion"><i class="fa-solid fa-hard-drive"></i><span>Ingestion</span></div>
+                        <div class="connector"></div>
+                        <div class="node" id="node-analysis"><i class="fa-solid fa-eye"></i><span>Analysis</span></div>
+                        <div class="connector"></div>
+                        <div class="node" id="node-ai"><i class="fa-solid fa-microchip"></i><span>AI Engine</span></div>
+                        <div class="connector"></div>
+                        <div class="node" id="node-edit"><i class="fa-solid fa-scissors"></i><span>Editing</span></div>
+                        <div class="connector"></div>
+                        <div class="node" id="node-render"><i class="fa-solid fa-layer-group"></i><span>Render</span></div>
+                    </div>
+                    <div class="terminal-log" id="terminalLog">
+                        <p class="sys-msg">Sistema ocioso. Envie seus vídeos e inicie a produção.</p>
+                    </div>
+                </section>
+
+                <!-- Preview / Output Panel -->
+                <section class="preview-panel glass-panel">
+                    <div class="video-preview" id="videoPreviewContainer">
+                        <video id="videoPlayer" controls style="display:none; width:100%; height:100%; object-fit:contain; border-radius:8px;">
+                            Your browser does not support HTML5 video.
+                        </video>
+                        <div class="mock-video" id="mockVideoPlaceholder">
+                            <i class="fa-solid fa-film"></i>
+                            <p>Preview disponível após produção</p>
+                            <div class="subtitle-overlay" id="subtitleOverlay"></div>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-tracks">
+                            <div class="track video-track">
+                                <span class="track-name">Video</span>
+                                <div class="clips" id="videoClips"></div>
+                            </div>
+                            <div class="track audio-track">
+                                <span class="track-name">Audio</span>
+                                <div class="clips" id="audioClips"></div>
+                            </div>
+                            <div class="track subtitle-track">
+                                <span class="track-name">Subs</span>
+                                <div class="clips" id="subClips"></div>
+                            </div>
+                        </div>
+                        <div class="playhead"></div>
+                    </div>
+                    <div class="outputs-section" id="outputsSection" style="display:none;">
+                        <div class="outputs-header">
+                            <h3><i class="fa-solid fa-box-open"></i> Deliverables Ready</h3>
+                            <span class="outputs-badge" id="outputsBadge">0 files</span>
+                        </div>
+                        <div class="output-cards" id="outputCards"></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ═══ Transcription View (inside dashboard-grid, hidden by default) ═══ -->
+            <div class="transcribe-view" id="transcribeView" style="display:none;">
+                <div class="transcribe-view-header">
+                    <button class="tp-btn tp-btn-back" id="btnBackToStudio">
+                        <i class="fa-solid fa-arrow-left"></i> Voltar ao Studio
+                    </button>
+                    <span class="transcribe-view-title"><i class="fa-solid fa-closed-captioning"></i> Transcrição de Vídeo</span>
+                </div>
+                <div class="transcribe-layout">
+                    <!-- Left: Video + Subtitle Overlay -->
+                    <div class="transcribe-video-col">
+                        <div class="transcribe-video-container" id="transcribeVideoContainer">
+                            <video id="transcribeVideoPlayer" controls style="display:none; width:100%; height:100%; object-fit:contain; border-radius:8px;">
+                                Seu navegador não suporta vídeo HTML5.
+                            </video>
+                            <div class="transcribe-upload-zone" id="transcribeUploadZone">
+                                <input type="file" id="transcribeFileInput" accept="video/*" style="display:none;">
+                                <i class="fa-solid fa-cloud-arrow-up transcribe-upload-icon"></i>
+                                <p class="transcribe-upload-title">Arraste um vídeo ou clique para selecionar</p>
+                                <p class="transcribe-upload-sub">MP4 · MOV · MKV · AVI · WebM</p>
+                            </div>
+                            <div class="transcribe-subtitle-overlay" id="transcribeSubtitleOverlay"></div>
+                        </div>
+                        <!-- Transcribe Controls -->
+                        <div class="transcribe-controls" id="transcribeControls" style="display:none;">
+                            <button class="btn-transcribe" id="btnTranscribe">
+                                <i class="fa-solid fa-closed-captioning"></i> Transcrever Vídeo
+                            </button>
+                            <button class="btn-new-video" id="btnNewVideo" title="Limpar e escolher outro vídeo">
+                                <i class="fa-solid fa-plus"></i> Novo Vídeo
+                            </button>
+                            <!-- Painel de Progresso Aprimorado -->
+                            <div class="transcribe-progress-panel" id="transcribeProgress" style="display:none;">
+                                <div class="tp-header">
+                                    <div class="tp-icon-wrap">
+                                        <i class="fa-solid fa-circle-notch fa-spin tp-icon" id="tpIcon"></i>
+                                        <svg class="tp-ring" viewBox="0 0 44 44">
+                                            <circle class="tp-ring-bg" cx="22" cy="22" r="20"></circle>
+                                            <circle class="tp-ring-fill" cx="22" cy="22" r="20" id="tpRingFill"></circle>
+                                        </svg>
+                                    </div>
+                                    <div class="tp-info">
+                                        <span class="tp-stage" id="tpStage">Preparando...</span>
+                                        <span class="tp-eta" id="tpEta"></span>
+                                    </div>
+                                    <div class="tp-pct" id="tpPct">0%</div>
+                                </div>
+                                <div class="tp-bar">
+                                    <div class="tp-bar-fill" id="tpBarFill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Transcription Text Panel -->
+                    <div class="transcribe-text-col">
+                        <div class="transcribe-text-header">
+                            <h3><i class="fa-solid fa-file-lines"></i> Transcrição</h3>
+                            <span class="transcribe-lang-badge" id="transcribeLangBadge" style="display:none;"></span>
+                        </div>
+                        <!-- Toolbar: Salvar + Gerar Vídeo + Novo -->
+                        <div class="transcribe-text-toolbar" id="transcribeToolbar" style="display:none;">
+                            <button class="tp-btn tp-btn-save" id="btnSaveSrt" disabled>
+                                <i class="fa-solid fa-floppy-disk"></i> Salvar SRT
+                            </button>
+                            <button class="tp-btn tp-btn-burn" id="btnBurnSubs">
+                                <i class="fa-solid fa-film"></i> Gerar Vídeo c/ Legenda
+                            </button>
+                            <button class="tp-btn tp-btn-new" id="btnNewTranscribe">
+                                <i class="fa-solid fa-plus"></i> Novo Vídeo
+                            </button>
+                        </div>
+                        <div class="transcribe-text-body" id="transcribeTextBody">
+                            <p class="transcribe-empty-msg">Faça upload de um vídeo para iniciar a transcrição.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

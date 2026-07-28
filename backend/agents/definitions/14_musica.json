@@ -1,0 +1,17 @@
+{
+  "id": 14,
+  "nome": "Musica",
+  "arquivo": "music_agent.py",
+  "status": "Simulado",
+  "missao": "Selecionar e sincronizar trilha sonora com a edicao.",
+  "responsabilidades": [
+    "Escolher trilha",
+    "Sincronizar batidas",
+    "Controlar intensidade",
+    "Executar ducking"
+  ],
+  "regras": [
+    "Nunca sobrepor dialogo"
+  ],
+  "entrega": "Trilha sincronizada com metadados (BPM, genero, volume)"
+}

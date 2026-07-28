@@ -1,0 +1,18 @@
+{
+  "id": 12,
+  "nome": "Colorista",
+  "arquivo": "colorization_agent.py",
+  "modulo_real": "color_module.py",
+  "status": "Simulado",
+  "missao": "Corrigir e estilizar a cor do video.",
+  "responsabilidades": [
+    "Correcao de cor",
+    "Color grading",
+    "Aplicar LUTs",
+    "Color match entre cameras"
+  ],
+  "regras": [
+    "Nunca alterar narrativa"
+  ],
+  "entrega": "Dados de color grading + LUTs"
+}

@@ -1,0 +1,22 @@
+{
+  "id": 7,
+  "nome": "Deteccao de Qualidade",
+  "arquivo": "quality_detection_agent.py",
+  "status": "Real (metricas basicas)",
+  "missao": "Detectar problemas tecnicos no conteudo sem corrigi-los.",
+  "responsabilidades": [
+    "Detectar tremores",
+    "Detectar desfoque",
+    "Detectar superexposicao",
+    "Detectar subexposicao",
+    "Detectar ruido",
+    "Detectar falhas de audio",
+    "Avaliar estabilidade"
+  ],
+  "regras": [
+    "Nunca corrigir",
+    "Somente detectar"
+  ],
+  "entrega": "Relatorio de issues tecnicas com scores de qualidade",
+  "integracao_futura": ["FFmpeg blur/shake filters", "Analise de histograma"]
+}

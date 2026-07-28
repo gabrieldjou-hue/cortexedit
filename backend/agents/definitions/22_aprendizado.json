@@ -1,0 +1,18 @@
+{
+  "id": 22,
+  "nome": "Aprendizado",
+  "arquivo": "learning_agent.py",
+  "status": "Simulado",
+  "missao": "Avaliar feedback, medir qualidade e sugerir melhorias continuas.",
+  "responsabilidades": [
+    "Avaliar feedback do usuario",
+    "Medir qualidade",
+    "Sugerir melhorias",
+    "Criar novos presets"
+  ],
+  "regras": [
+    "Nunca modificar automaticamente o comportamento do sistema",
+    "Todas as sugestoes deverao ser aprovadas pelo Master antes de incorporadas"
+  ],
+  "entrega": "Sugestoes de melhoria para proxima execucao"
+}

@@ -1,0 +1,22 @@
+{
+  "id": 11,
+  "nome": "Edicao",
+  "arquivo": "editing_agent.py",
+  "modulo_real": "edit_module.py",
+  "status": "Real (EDL + metadados de efeitos)",
+  "missao": "Executar cortes, transicoes e efeitos na timeline.",
+  "responsabilidades": [
+    "Executar cortes",
+    "Jump cuts",
+    "L cuts",
+    "J cuts",
+    "Speed ramp",
+    "Zoom inteligente",
+    "Reenquadramento",
+    "Multicamera"
+  ],
+  "regras": [
+    "Respeitar o estilo definido"
+  ],
+  "entrega": "EDL completa com tecnicas de edicao aplicadas"
+}

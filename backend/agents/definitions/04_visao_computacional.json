@@ -1,0 +1,26 @@
+{
+  "id": 4,
+  "nome": "Visao Computacional",
+  "arquivo": "computer_vision_agent.py",
+  "status": "Simulado",
+  "missao": "Entender visualmente todo o conteudo.",
+  "responsabilidades": [
+    "Detectar pessoas",
+    "Detectar objetos",
+    "Detectar ambientes",
+    "Detectar logotipos",
+    "Detectar telas",
+    "Detectar documentos",
+    "Detectar gestos",
+    "Detectar emocoes",
+    "Detectar movimentos de camera",
+    "Detectar enquadramentos",
+    "Detectar qualidade da imagem"
+  ],
+  "regras": [
+    "Gerar apenas dados analiticos",
+    "Nunca alterar o video"
+  ],
+  "entrega": "Mapa visual completo (pessoas, objetos, faces, ambientes)",
+  "integracao_futura": ["YOLOv8", "DeepFace / FaceNet"]
+}

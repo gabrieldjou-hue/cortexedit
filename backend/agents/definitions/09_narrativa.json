@@ -1,0 +1,19 @@
+{
+  "id": 9,
+  "nome": "Narrativa",
+  "arquivo": "narrative_agent.py",
+  "status": "Real (3 atos)",
+  "missao": "Montar automaticamente uma sequencia logica com ritmo, inicio, desenvolvimento e encerramento.",
+  "responsabilidades": [
+    "Montar sequencia logica",
+    "Criar ritmo",
+    "Definir inicio",
+    "Definir desenvolvimento",
+    "Definir encerramento"
+  ],
+  "regras": [
+    "Nunca modificar conteudo",
+    "Somente reorganizar"
+  ],
+  "entrega": "Estrutura narrativa em 3 atos"
+}

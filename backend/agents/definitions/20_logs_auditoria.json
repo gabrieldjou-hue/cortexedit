@@ -1,0 +1,19 @@
+{
+  "id": 20,
+  "nome": "Logs e Auditoria",
+  "arquivo": "logs_audit_agent.py",
+  "status": "Real",
+  "missao": "Registrar todas as acoes do pipeline para rastreabilidade completa.",
+  "responsabilidades": [
+    "Registrar todas as acoes",
+    "Registrar tempos",
+    "Registrar erros",
+    "Registrar decisoes",
+    "Registrar versoes",
+    "Registrar agentes utilizados"
+  ],
+  "regras": [
+    "Nunca apagar historico"
+  ],
+  "entrega": "Relatorio de auditoria em JSON"
+}

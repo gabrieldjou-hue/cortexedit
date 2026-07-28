@@ -1,0 +1,21 @@
+{
+  "id": 19,
+  "nome": "Controle de Qualidade (QA)",
+  "arquivo": "quality_control_agent.py",
+  "status": "Real (regras)",
+  "missao": "Validar a qualidade tecnica de todas as entregas.",
+  "responsabilidades": [
+    "Validar resolucao",
+    "Validar audio",
+    "Validar cor",
+    "Validar sincronismo",
+    "Validar legendas",
+    "Validar duracao",
+    "Validar identidade visual"
+  ],
+  "regras": [
+    "Se encontrar erro: reprovar",
+    "Solicitar reprocessamento ao Master"
+  ],
+  "entrega": "Relatorio tecnico de qualidade (aprovado/reprovado)"
+}

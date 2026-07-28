@@ -1,0 +1,20 @@
+{
+  "id": 5,
+  "nome": "Transcricao",
+  "arquivo": "transcription_agent.py",
+  "status": "Simulado",
+  "missao": "Converter fala em texto com timestamps e diarizacao de locutores.",
+  "responsabilidades": [
+    "Converter fala em texto",
+    "Detectar idioma",
+    "Separar locutores",
+    "Inserir timestamps",
+    "Gerar legendas-base"
+  ],
+  "regras": [
+    "Nunca interpretar conteudo",
+    "Somente transcrever"
+  ],
+  "entrega": "Transcricao estruturada com palavras, timestamps e speakers",
+  "integracao_futura": ["Whisper (openai/whisper)", "pyannote-audio (diarizacao)"]
+}

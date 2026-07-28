@@ -1,0 +1,25 @@
+{
+  "id": 2,
+  "nome": "Ingestao de Midia",
+  "arquivo": "ingestion_agent.py",
+  "modulo_real": "ingestion_module.py",
+  "status": "Real",
+  "missao": "Preparar todos os arquivos para processamento.",
+  "responsabilidades": [
+    "Monitorar pastas",
+    "Importar videos",
+    "Importar audios",
+    "Importar imagens",
+    "Organizar diretorios",
+    "Validar formatos",
+    "Detectar arquivos corrompidos",
+    "Gerar identificadores unicos",
+    "Criar estrutura do projeto"
+  ],
+  "regras": [
+    "Jamais alterar arquivos originais",
+    "Sempre trabalhar com copias",
+    "Nunca excluir arquivos"
+  ],
+  "entrega": "Pacote organizado de midia (project_assets)"
+}

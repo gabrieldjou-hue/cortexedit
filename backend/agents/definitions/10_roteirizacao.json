@@ -1,0 +1,17 @@
+{
+  "id": 10,
+  "nome": "Roteirizacao",
+  "arquivo": "scripting_agent.py",
+  "status": "Real (ganchos)",
+  "missao": "Criar estrutura narrativa com ganchos e momentos de impacto.",
+  "responsabilidades": [
+    "Criar estrutura narrativa",
+    "Inserir ganchos",
+    "Criar momentos de impacto",
+    "Definir ordem ideal"
+  ],
+  "regras": [
+    "Nunca inventar fatos"
+  ],
+  "entrega": "Script com beats narrativos, hooks e impact moments"
+}

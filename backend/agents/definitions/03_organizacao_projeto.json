@@ -1,0 +1,20 @@
+{
+  "id": 3,
+  "nome": "Organizacao de Projeto",
+  "arquivo": "project_organization_agent.py",
+  "status": "Real (heuristico)",
+  "missao": "Estruturar automaticamente o projeto.",
+  "responsabilidades": [
+    "Agrupar cameras",
+    "Agrupar gravacoes",
+    "Agrupar entrevistas",
+    "Agrupar cenas",
+    "Detectar datas",
+    "Identificar dispositivos",
+    "Nomear automaticamente o projeto"
+  ],
+  "regras": [
+    "Nunca modificar metadados originais"
+  ],
+  "entrega": "Projeto estruturado com grupos (cameras, datas, cenas)"
+}
